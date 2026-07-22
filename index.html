@@ -53,36 +53,7 @@
     a:hover { text-decoration: underline; }
 
     /* NAV */
-    nav {
-      background: #ffffff;
-      border-bottom: 2px solid #1e6b3d;
-      padding: 0 40px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 64px;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-    }
-    .nav-logo {
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: #1e6b3d;
-      letter-spacing: -0.5px;
-    }
-    .nav-links { display: flex; gap: 32px; list-style: none; }
-    .nav-links a { font-size: 0.92rem; font-weight: 500; color: #333; }
     .nav-links a:hover { color: #1e6b3d; text-decoration: none; }
-    .nav-cta {
-      background: #1e6b3d;
-      color: #fff !important;
-      padding: 9px 22px;
-      border-radius: 4px;
-      font-weight: 600;
-      font-size: 0.88rem;
-    }
     .nav-cta:hover { background: #155230; text-decoration: none !important; }
 
     /* HERO */
@@ -250,8 +221,6 @@
       section { padding: 48px 24px; }
       .section-divider { margin: 0 24px; }
       .two-col { grid-template-columns: 1fr; gap: 28px; }
-      nav { padding: 0 20px; }
-      .nav-links { gap: 16px; }
       footer { padding: 24px; flex-direction: column; gap: 10px; text-align: center; }
     }
   
@@ -278,46 +247,6 @@
   
     /* ===== MOBILE NAV ===== */
     html, body { overflow-x: hidden; max-width: 100%; }
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      padding: 8px;
-      background: none;
-      border: none;
-      margin-left: auto;
-      flex-shrink: 0;
-    }
-    .hamburger span {
-      display: block;
-      width: 24px;
-      height: 2px;
-      background: currentColor;
-      border-radius: 2px;
-      transition: 0.2s;
-    }
-    .mobile-menu {
-      display: none;
-      flex-direction: column;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
-      background: inherit;
-      border-top: 1px solid rgba(0,0,0,0.1);
-      padding: 12px 0;
-      z-index: 999;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    }
-    .mobile-menu.open { display: flex; }
-    .mobile-menu a {
-      padding: 12px 24px;
-      font-size: 1rem;
-      font-weight: 600;
-      text-decoration: none;
-      display: block;
-    }
     @media (max-width: 768px) {
       nav, header {
         position: relative;
@@ -331,7 +260,6 @@
       /* hide desktop nav links / items */
       .nav-links, .nav-items, .nav-menu, .nav-right { display: none !important; }
       /* show hamburger */
-      .hamburger { display: flex !important; }
       /* fix any overflow-causing elements */
       nav > *, header > * { flex-shrink: 1; min-width: 0; }
       /* logo stays visible */
@@ -345,28 +273,40 @@
       }
     }
 
+  
+    nav { background: #fff; border-bottom: 2px solid #1e6b3d; position: sticky; top: 0; z-index: 100; }
+    .nav-top { max-width: 1100px; margin: 0 auto; padding: 0.75rem 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-weight: 900; font-size: 1.1rem; color: #1e6b3d; text-decoration: none; letter-spacing: -0.5px; }
+    .nav-links-desktop { display: flex; gap: 1.5rem; list-style: none; align-items: center; }
+    .nav-links-desktop a { text-decoration: none; color: #333; font-size: 0.9rem; font-weight: 500; }
+    .nav-links-desktop a:hover { color: #1e6b3d; }
+    .nav-cta-btn { background: #1e6b3d; color: #fff !important; padding: 0.4rem 1rem; border-radius: 4px; }
+    .nav-strip { display: none; overflow-x: auto; white-space: nowrap; padding: 0.5rem 1rem; border-top: 1px solid #eee; scrollbar-width: none; }
+    .nav-strip a { display: inline-block; text-decoration: none; color: #333; font-size: 0.85rem; font-weight: 500; margin-right: 1.2rem; }
+    .nav-strip .strip-cta { color: #1e6b3d; font-weight: 700; }
+    @media (max-width: 840px) { .nav-links-desktop { display: none; } .nav-strip { display: block; } }
+
   </style>
 </head>
 <body>
 
 <!-- NAVIGATION -->
 <nav>
-  <div class="nav-logo">PPContainers.com</div>
-  <ul class="nav-links">
-    <li><a href="#products">Products</a></li>
-    <li><a href="#specs">Specs</a></li>
-    <li><a href="#why-pp">Why PP</a></li>
-    <li><a href="#faq">FAQ</a></li>
-    <li><a href="https://elipacko.com" class="nav-cta">Get a Quote</a></li>
-  </ul>
-<button class="hamburger" style="color:#1e6b3d" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
-  <div class="mobile-menu" style="background:inherit">
-  <a href="#products" style="color:#1e6b3d">Products</a>
-  <a href="#specs" style="color:#1e6b3d">Specs</a>
-  <a href="#why-pp" style="color:#1e6b3d">Why PP</a>
-  <a href="#faq" style="color:#1e6b3d">FAQ</a>
+  <div class="nav-top">
+    <a href="/" class="nav-logo">PPContainers.com</a>
+    <ul class="nav-links-desktop" role="list">
+      <li><a href="/bulk-pp-containers/">Bulk PP Containers</a></li>
+      <li><a href="/reusable-industrial-totes/">Reusable Totes</a></li>
+      <li><a href="/stackable-containers/">Stackable Containers</a></li>
+      <li><a href="https://elipacko.com"class="nav-cta-btn">Get a Quote</a></li>
+    </ul>
+  </div>
+  <div class="nav-strip" role="navigation">
+      <a href="/">Home</a>
+      <a href="/bulk-pp-containers/">Bulk PP Containers</a>
+      <a href="/reusable-industrial-totes/">Reusable Totes</a>
+      <a href="/stackable-containers/">Stackable Containers</a>
+      <a href="https://elipacko.com"class="strip-cta">Get a Quote</a>
   </div>
 </nav>
 <!-- PHOTO STRIP -->
@@ -670,22 +610,7 @@
 </footer>
 
 
-<script>
-(function(){
-  var btn = document.querySelector('.hamburger');
-  var menu = document.querySelector('.mobile-menu');
-  if(btn && menu){
-    btn.addEventListener('click', function(){
-      menu.classList.toggle('open');
-    });
-    document.addEventListener('click', function(e){
-      if(!btn.contains(e.target) && !menu.contains(e.target)){
-        menu.classList.remove('open');
-      }
-    });
-  }
-})();
-</script>
+
 
 </body>
 </html>
